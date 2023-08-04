@@ -32,5 +32,8 @@ run_counter: build_dev_image catkin
 run_saver: build_dev_image catkin
 	${dev_docker_cmd_user} -it ${dev_image} /bin/bash -c 'source devel/setup.bash; echo running image path saver...; ${catkin_ws}/src/image_counting/src/path_saver.py;  echo image path saver exited with code $$? .'
 	
+run: build_dev_image catkin
+	${dev_docker_cmd_user} -it ${dev_image} /bin/bash -c 'source devel/setup.bash; echo running everything; roslaunch image_counting everything.launch; echo Done running everything'
+	
 run_roscore:
 	${dev_docker_cmd_base} ${dev_image} /bin/bash -c 'roscore'

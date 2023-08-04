@@ -1,4 +1,5 @@
 <launch>
+  <param name="device" />
   <node name="$(anon image_counter)" pkg="image_counting" type="image_counter.py" />
   <node name="$(anon image_publisher)" pkg="image_counting" type="image_publisher.py" />
   <node name="$(anon path_saver)" pkg="image_counting" type="path_saver.py" />

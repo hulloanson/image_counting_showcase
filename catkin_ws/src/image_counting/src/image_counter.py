@@ -6,6 +6,8 @@ import rospy
 
 import os 
 
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
 def is_prime(num):
     if num > 1:
         for i in range(2, int(num/2)+1):
@@ -37,11 +39,10 @@ class ImageCounter:
           self.file_path_publisher.publish(path)
         
   def run(self):
-    file_path_publisher = self.file_path_publisher
     rospy.init_node('image_counter', anonymous=True)
-    file_path_publisher = rospy.Publisher('/img_path', String, queue_size=10)
-    image_subscriber = rospy.Subscriber('/cam_img', CompressedImage, self.on_cam_img_msg)
-    reset_subscriber = rospy.Subscriber('/reset', Empty, self.reset)
+    self.file_path_publisher = rospy.Publisher('/img_path', String, queue_size=10)
+    self.image_subscriber = rospy.Subscriber('/cam_img', CompressedImage, self.on_cam_img_msg)
+    self.reset_subscriber = rospy.Subscriber('/reset', Empty, self.reset)
     rospy.spin()
 
 def main():

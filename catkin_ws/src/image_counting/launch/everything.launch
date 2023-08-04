@@ -1,9 +1,9 @@
 <launch>
   <arg name="device" default="/dev/video0" />> <param name="device" value="$(arg device)" />
   <node
-    name="$(anon image_counter)" pkg="image_counting" type="image_counter.py" />
+    name="$(anon image_counter)" pkg="image_counting" type="image_counter.py" output="screen" />
   <node
-    name="$(anon image_publisher)" pkg="image_counting" type="image_publisher.py" />
+    name="$(anon image_publisher)" pkg="image_counting" type="image_publisher.py" output="screen" />
   <node
-    name="$(anon path_saver)" pkg="image_counting" type="path_saver.py" />
+    name="$(anon path_saver)" pkg="image_counting" type="path_saver.py" output="screen" />
 </launch>

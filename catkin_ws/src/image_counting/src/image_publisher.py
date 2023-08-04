@@ -8,6 +8,8 @@ from gi.repository import Gst, GLib
 
 import os
 
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
 publisher = None
 
 pipeline = None

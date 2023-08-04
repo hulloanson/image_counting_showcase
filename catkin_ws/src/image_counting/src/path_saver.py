@@ -6,10 +6,9 @@ import rospy
 
 import os 
 
-file_path_publisher = None
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-def get_cwd():
-  return os.path.dirname(os.path.realpath(__file__))
+file_path_publisher = None
 
 counter = 0
 
@@ -31,12 +30,12 @@ def on_img_path(msg):
   
 def main():
   global file_path_publisher 
-  rospy.init_node('image_counter', anonymous=True)
-  image_path_subscriber = rospy.Subscriber('/img_path', String, on_img_path)
-  reset_subscriber = rospy.Subscriber('/reset', Empty, clear_txt_file)
   global txt_file_handle
   txt_file_handle = open(txt_path, 'a')
   clear_txt_file()
+  rospy.init_node('image_counter', anonymous=True)
+  image_path_subscriber = rospy.Subscriber('/img_path', String, on_img_path)
+  reset_subscriber = rospy.Subscriber('/reset', Empty, clear_txt_file)
   rospy.spin()
   if txt_file_handle is not None:
     txt_file_handle.close()

@@ -17,3 +17,7 @@ roslaunch image_counting everything.launch
 ```bash
 make run
 ```
+
+## Demo video
+
+<video src='demo.mp4' />

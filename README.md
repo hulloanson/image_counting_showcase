@@ -20,6 +20,4 @@ make run
 
 ## Demo video
 
-<video controls>
-  <source src="demo.mp4" type="video/mp4">
-</video>
+[See it here](./demo.mp4)
